@@ -225,6 +225,12 @@ runs:
         rm acf.zip
       shell: bash
 
+    - name: Install missing TypeScript types  ← 4 spaces before dash
+      run: |
+        cd wp-content/themes/municipio
+        npm install --save-dev @types/leaflet || true
+      shell: bash
+
     - name: Execute buildscripts in themes and plugins folders.
       run: php ./build.php --cleanup --no-composer-in-child-packages --install-npm
       shell: bash
