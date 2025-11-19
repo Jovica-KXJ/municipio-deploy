@@ -205,7 +205,7 @@ runs:
       shell: bash
 
     - name: Install composer dependencies.
-      run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader --classmap-authoritative
+      run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader --classmap-authoritative --no-audit
       shell: bash
 
     - name: Write composer versions info file.
