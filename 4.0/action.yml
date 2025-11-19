@@ -174,7 +174,7 @@ runs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ inputs.php-version }}
-        tools: composer:v2
+        tools: composer:2.6
       env:
         COMPOSER_TOKEN: ${{ inputs.github-token }}
 
@@ -205,7 +205,7 @@ runs:
       shell: bash
 
     - name: Install composer dependencies.
-      run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader --classmap-authoritative --no-audit
+      run: composer install --prefer-dist --no-progress --no-suggest --optimize-autoloader --classmap-authoritative
       shell: bash
 
     - name: Write composer versions info file.
