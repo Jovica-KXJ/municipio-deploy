@@ -270,6 +270,20 @@ runs:
         key: ${{ inputs.deploy-host-user-key }}
         port: ${{ inputs.deploy-port }}
 
+    - name: Restore uploads symlink
+      uses: appleboy/ssh-action@v1.1.0
+      with:
+        script: |
+          cd ${{ inputs.deploy-host-path }}
+          if [ ! -e "wp-content/uploads" ]; then
+            ln -s ../../app_12104.bak/wp-content/uploads wp-content/uploads
+            echo "Recreated uploads symlink"
+          fi
+        host: ${{ inputs.deploy-host }}
+        username: ${{ inputs.deploy-host-user }}
+        key: ${{ inputs.deploy-host-user-key }}
+        port: ${{ inputs.deploy-port }}
+
     - name: Set file permissions.
       uses: appleboy/ssh-action@v1.1.0
       with:
